@@ -3,7 +3,7 @@ import { Form, Table, TableProps, Button, Radio, Select, Space, InputNumber, For
 import { useState } from 'react'
 import { DeleteOutlined } from '@ant-design/icons'
 import { Coord, CoordInputProps, DataFormProps, LatitudeOption, LongitudeOption, PlanInput, PlanTableProps, StopsInputProps, VRPRoute, VRPSolve, WidthID } from './types.d'
-import VRPWorker from './solver?worker'
+import VRPWorker from './solver?worker&inline'
 
 
 const { Option } = Select
