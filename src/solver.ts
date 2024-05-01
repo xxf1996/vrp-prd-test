@@ -41,7 +41,7 @@ class VRPSolver {
   private selectedNum = 50
   /** 进化轮数，即迭代次数 */
   private iterNum = 200
-  constructor(private warehouse: Coord, private stops: Coord[]) {
+  constructor(warehouse: Coord, private stops: Coord[]) {
     this.coords = [warehouse, ...stops]
     this.initPopulation()
   }
@@ -206,42 +206,42 @@ function generate(formData: PlanInput) {
   return plan
 }
 
-function test() {
-  const warehouse: Coord = {
-    longitude: 120.504588,
-    latitude: 23.7102884
-  }
-  const stops: Coord[] = [
-    {
-      longitude: 120.104588,
-      latitude: 23.1102884
-    },
-    {
-      longitude: 120.8478606,
-      latitude: 23.8715329,
-    },
-    {
-      longitude: 120.902588,
-      latitude: 23.2102884
-    },
-    {
-      longitude: 120.6986373,
-      latitude: 23.9083593,
-    },
-    {
-      longitude: 121.5247155,
-      latitude: 25.2190197
-    },
-    {
-      longitude: 120.2078873,
-      latitude: 23.4250174
-    },
-  ]
+// function test() {
+//   const warehouse: Coord = {
+//     longitude: 120.504588,
+//     latitude: 23.7102884
+//   }
+//   const stops: Coord[] = [
+//     {
+//       longitude: 120.104588,
+//       latitude: 23.1102884
+//     },
+//     {
+//       longitude: 120.8478606,
+//       latitude: 23.8715329,
+//     },
+//     {
+//       longitude: 120.902588,
+//       latitude: 23.2102884
+//     },
+//     {
+//       longitude: 120.6986373,
+//       latitude: 23.9083593,
+//     },
+//     {
+//       longitude: 121.5247155,
+//       latitude: 25.2190197
+//     },
+//     {
+//       longitude: 120.2078873,
+//       latitude: 23.4250174
+//     },
+//   ]
 
-  const solver = new VRPSolver(warehouse, stops)
-  const result = solver.solve()
-  console.log(result)
-}
+//   const solver = new VRPSolver(warehouse, stops)
+//   const result = solver.solve()
+//   console.log(result)
+// }
 
 onmessage = (event: MessageEvent<PlanInput>) => {
   const plan = generate(event.data)

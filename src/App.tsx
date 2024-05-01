@@ -29,7 +29,7 @@ function LatitudeType({ onChange }: { onChange?: (value: LatitudeOption) => void
 }
 
 function CoordInput(props: CoordInputProps) {
-  const { value, onChange } = props
+  const { onChange } = props
   const [longitude, setLongitude] = useState(0)
   const [latitude, setLatitude] = useState(0)
   const [longitudeType, setLongitudeType] = useState<LongitudeOption>('E')
@@ -61,8 +61,8 @@ function CoordInput(props: CoordInputProps) {
 
   return (
     <Space direction="horizontal">
-      <InputNumber value={longitude} addonBefore={<LongitudeType onChange={changeLongitudeType} />} placeholder="Longitude" min={0} max={180} step={1e-6} onChange={changeLongitude} />
-      <InputNumber value={latitude} addonBefore={<LatitudeType onChange={changeLatitudeType} />} placeholder="Latitude" min={0} max={90} step={1e-6} onChange={changeLatitude} />
+      <InputNumber value={longitude} addonBefore={<LongitudeType onChange={changeLongitudeType} />} placeholder="Longitude" min={0} max={180} step={1e-6} onChange={val => changeLongitude(val ?? NaN)} />
+      <InputNumber value={latitude} addonBefore={<LatitudeType onChange={changeLatitudeType} />} placeholder="Latitude" min={0} max={90} step={1e-6} onChange={val => changeLatitude(val ?? NaN)} />
     </Space>
   )
 }
@@ -70,7 +70,7 @@ function CoordInput(props: CoordInputProps) {
 let stopID = 0
 
 function StopsInput(props: StopsInputProps) {
-  const { value, onChange } = props
+  const { onChange } = props
   const [stops, setStops] = useState<WidthID<Coord>[]>([])
   const trigger = (newVal: Coord[] = []) => {
     onChange?.(newVal)
